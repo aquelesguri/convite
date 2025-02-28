@@ -4,30 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aqueles Guri - Convite para o Clã</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Bebas+Neue&display=swap');
+
+        /* Efeito de fundo animado */
+        @keyframes bgAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Efeito da logo se movendo suavemente */
+        @keyframes logoMove {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Efeito dos botões subindo e descendo */
+        @keyframes buttonFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #2B2D42, #1E1E3F, #3A3D66);
+            background-size: 300% 300%;
+            animation: bgAnimation 8s infinite alternate;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            animation: logoMove 4s infinite ease-in-out;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        }
+
+        .box {
+            background: rgba(30, 30, 50, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #CCCCCC;
+            margin-bottom: 15px;
+        }
+
+        input {
+            padding: 12px;
+            font-size: 16px;
+            width: 90%;
+            margin-bottom: 15px;
+            border: 2px solid #FFD700;
+            background-color: #2A2D4A;
+            color: #FFD700;
+            text-align: center;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        /* Estilo dos botões */
+        button {
+            padding: 12px 20px;
+            font-size: 18px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+            animation: buttonFloat 4s infinite ease-in-out;
+        }
+
+        /* Botão amarelo */
+        .btn-yellow {
+            background: linear-gradient(90deg, #FFD700, #E6B800);
+            color: #1E1E1E;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-yellow:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Botão verde */
+        .btn-green {
+            background: linear-gradient(90deg, #00C853, #009624);
+            color: #1E1E1E; /* Ajustei para ficar igual ao do botão amarelo */
+            box-shadow: 0 4px 8px rgba(0, 200, 83, 0.5);
+        }
+
+        .btn-green:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 200, 83, 0.8);
+        }
+
+        /* Estilo do box de regras */
+        .rules {
+            text-align: left;
+            font-size: 14px;
+            color: #CCCCCC;
+            list-style: none;
+            padding: 0;
+        }
+
+        .rules li {
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-purple-300 to-purple-600 flex justify-center items-center min-h-screen">
-
-    <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg w-96 text-center">
-        <h2 class="text-2xl font-bold text-purple-800">Aqueles Guri - Convite para o Clã</h2>
-        <p class="text-gray-600 mt-2">Digite seu número do WhatsApp:</p>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Aqueles Guri" class="logo">
         
-        <input type="text" id="numero" placeholder="Ex: 51 9 9013-0869"
-            class="w-full mt-3 p-3 border-2 border-purple-500 rounded-md text-center text-purple-800 focus:ring-2 focus:ring-purple-400 outline-none">
-        
-        <button onclick="gerarLink()" 
-            class="w-full mt-4 bg-gradient-to-r from-purple-600 to-purple-400 text-white font-bold py-3 rounded-md shadow-md hover:scale-105 transition transform">
-            Entrar no WhatsApp
-        </button>
+        <div class="box">
+            <h2>⚔️ Convide Alguém para o Clã</h2>
+            <p>Digite o número do WhatsApp da pessoa:</p>
+            <input type="text" id="numero" placeholder="Ex: 51 9 9013-0869">
+            <button class="btn-yellow" onclick="gerarLink()">📜 Convidar para o Clã</button>
+        </div>
 
-        <!-- Regras do Grupo -->
-        <div class="mt-6 text-left bg-gray-100 p-4 rounded-md shadow-md">
-            <h3 class="text-lg font-semibold text-purple-700">📜 Regras do Clã</h3>
-            <ul class="text-gray-700 mt-2 text-sm list-disc list-inside">
-                <li>🚫 Sem spam ou divulgação.</li>
-                <li>🤝 Respeito entre os membros.</li>
+        <div class="box">
+            <h2>⚔️ Entre Agora Mesmo</h2>
+            <p>Clique no botão abaixo para entrar diretamente no grupo do WhatsApp.</p>
+            <button class="btn-green" onclick="entrarNoGrupo()">✅ Entrar no Grupo</button>
+        </div>
+
+        <div class="box">
+            <h2>📜 Regras do Clã</h2>
+            <ul class="rules">
+                <li>🔸 Sem spam ou divulgação.</li>
+                <li>🔹 Respeito entre os membros.</li>
                 <li>🔥 Atividade mínima no jogo.</li>
-                <li>🛑 Proibido xingamentos e ofensas.</li>
+                <li>🚫 Proibido xingamentos e ofensas.</li>
                 <li>⚔️ Participação nos eventos do clã.</li>
             </ul>
         </div>
@@ -37,25 +179,28 @@
         function gerarLink() {
             var numero = document.getElementById("numero").value.trim();
 
-            // Remove espaços, traços e caracteres extras
+            // Remove espaços, traços e caracteres especiais
             numero = numero.replace(/\D/g, '');
 
-            // Validação: DDD (2 dígitos) + 9 dígitos do celular
+            // Verifica se o número tem um DDD (2 dígitos) + um celular válido (9 dígitos)
             if (numero.length !== 11 || !/^\d{11}$/.test(numero)) {
                 alert("Por favor, insira um número válido no formato DDD + 9 dígitos.");
                 return;
             }
 
-            // Adiciona código do Brasil
+            // Adiciona código do Brasil se não estiver presente
             numero = "55" + numero;
 
             var mensagem = encodeURIComponent("👉 https://chat.whatsapp.com/LPd9A6oQ8Wj5LMdDu3ATSs\n\nQuando entrar, manda teu nick no chat! 🔥");
             var link = "https://wa.me/" + numero + "?text=" + mensagem;
 
-            // Redireciona para o WhatsApp
+            // Redireciona automaticamente para o WhatsApp
             window.location.href = link;
         }
-    </script>
 
+        function entrarNoGrupo() {
+            window.location.href = "https://chat.whatsapp.com/LPd9A6oQ8Wj5LMdDu3ATSs";
+        }
+    </script>
 </body>
 </html>
