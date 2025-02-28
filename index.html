@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqueles Guri - Convite para o Clã</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #D8BFFF, #8A2BE2);
+            color: #4A0072;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+            display: inline-block;
+            width: 350px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #4A0072;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #5C5C5C;
+            margin-bottom: 15px;
+        }
+
+        input {
+            padding: 12px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 15px;
+            border: 2px solid #8A2BE2;
+            background-color: #F8F8F8;
+            color: #4A0072;
+            text-align: center;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #8A2BE2, #D8BFFF);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Aqueles Guri - Convite para o Clã</h2>
+        <p>Digite seu número do WhatsApp:</p>
+        <input type="text" id="numero" placeholder="Ex: 51 9 9013-0869">
+        <button onclick="gerarLink()">Entrar no WhatsApp</button>
+    </div>
+
+    <script>
+        function gerarLink() {
+            var numero = document.getElementById("numero").value.trim();
+
+            // Remove espaços, traços e caracteres especiais
+            numero = numero.replace(/\D/g, '');
+
+            // Verifica se o número tem um DDD (2 dígitos) + um celular válido (9 dígitos)
+            if (numero.length !== 11 || !/^\d{11}$/.test(numero)) {
+                alert("Por favor, insira um número válido no formato DDD + 9 dígitos.");
+                return;
+            }
+
+            // Adiciona código do Brasil se não estiver presente
+            numero = "55" + numero;
+
+            var mensagem = encodeURIComponent("👉 https://chat.whatsapp.com/LPd9A6oQ8Wj5LMdDu3ATSs\n\nQuando entrar, manda teu nick no chat! 🔥");
+            var link = "https://wa.me/" + numero + "?text=" + mensagem;
+
+            // Redireciona automaticamente para o WhatsApp
+            window.location.href = link;
+        }
+    </script>
+</body>
+</html>
